@@ -378,7 +378,6 @@ public class TeacherAdminService {
 
     UserEntity userEntity = teacherEntity.getUserEntity();
     userEntity.setName(updateTeacher.getName());
-    userEntity.setNameEn(updateTeacher.getNameEn());
     // password 는 nullable 이다.
     userEntity.setPassword(updateTeacher.getPassword() == null ? null
         : LmsUtils.encryptPassword(updateTeacher.getPassword()));

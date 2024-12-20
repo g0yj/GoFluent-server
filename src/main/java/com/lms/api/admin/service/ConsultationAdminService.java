@@ -274,15 +274,11 @@ public class ConsultationAdminService {
       userEntity.setName(consultationEntity.getName());
       userEntity.setType(UserType.S);
       userEntity.setGender(consultationEntity.getGender());
-      userEntity.setPhone(consultationEntity.getPhone());
       userEntity.setCellPhone(consultationEntity.getCellPhone());
       userEntity.setIsReceiveSms(YN.N);
       userEntity.setEmail(consultationEntity.getEmail());
       userEntity.setIsReceiveEmail(YN.N);
-      userEntity.setCompany(consultationEntity.getCompany());
-      userEntity.setJoinPath(consultationEntity.getFoundPath());
       userEntity.setActive(true);
-      userEntity.setCoursePurpose(consultationEntity.getStudyPurpose());
       userEntity.setCreatedBy(createdBy);
       // 회원 상담이력 테이블에 회원 등록 임을 알리는 데이터 추가
       List<MemberConsultationEntity> memberConsultationEntities = new ArrayList<>();

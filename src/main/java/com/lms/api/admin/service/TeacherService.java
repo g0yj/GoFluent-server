@@ -71,8 +71,6 @@ public class TeacherService {
                   qUserEntity.name.contains(searchUsers.getKeyword())
                           .or(qUserEntity.loginId.contains(searchUsers.getKeyword()))
                           .or(qUserEntity.email.contains(searchUsers.getKeyword()))
-                          .or(qUserEntity.company.contains(searchUsers.getKeyword()))
-                          .or(qUserEntity.phone.contains(searchUsers.getKeyword()))
                           .or(qUserEntity.cellPhone.contains(searchUsers.getKeyword()))
           );
           break;
@@ -83,7 +81,6 @@ public class TeacherService {
           where = where.and(qUserEntity.email.contains(searchUsers.getKeyword()));
           break;
         case "company":
-          where = where.and(qUserEntity.company.contains(searchUsers.getKeyword()));
           break;
         case "cellPhone":
           where = where.and(qUserEntity.cellPhone.contains(searchUsers.getKeyword()));
@@ -118,7 +115,6 @@ public class TeacherService {
       return TeacherPageUserList.builder()
               .id(userEntity.getId())
               .name(userEntity.getName())
-              .textbook(userEntity.getTextbook())
               .startTime(startTime)
               .endTime(endTime)
               .teacherName(teacherName)

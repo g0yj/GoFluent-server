@@ -193,7 +193,6 @@ public class TemplateAdminService {
                                 .todayLesson(reservationEntity.getTodayLesson())
                                 .nextLesson(reservationEntity.getNextLesson())
                                 .userName(reservationEntity.getUserEntity().getName())
-                                .cellPhone(reservationEntity.getUserEntity().getCellPhone())
                                 .assignedLessonCount(assignedLessonCount)
                                 .lessoncount(lessoncount)
                                 .remainingLessonCount(remainingLessonCount)
@@ -318,8 +317,6 @@ public class TemplateAdminService {
                             qUserEntity.name.contains(request.getKeyword())
                                     .or(qUserEntity.loginId.contains(request.getKeyword()))
                                     .or(qUserEntity.email.contains(request.getKeyword()))
-                                    .or(qUserEntity.company.contains(request.getKeyword()))
-                                    .or(qUserEntity.phone.contains(request.getKeyword()))
                                     .or(qUserEntity.cellPhone.contains(request.getKeyword()))
                     );
                     break;
@@ -332,11 +329,8 @@ public class TemplateAdminService {
                 case "email":
                     where = where.and(qUserEntity.email.contains(request.getKeyword()));
                     break;
-                case "company":
-                    where = where.and(qUserEntity.company.contains(request.getKeyword()));
-                    break;
                 case "phone":
-                    where = where.and(qUserEntity.phone.contains(request.getKeyword()));
+                    where = where.and(qUserEntity.cellPhone.contains(request.getKeyword()));
                 case "cellPhone":
                     where = where.and(qUserEntity.cellPhone.contains(request.getKeyword()));
                     break;

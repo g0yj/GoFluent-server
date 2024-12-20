@@ -35,23 +35,13 @@ public class UserEntity extends BaseEntity {
 
   String loginId;
   String name;
-  String nameEn;
-  String lastNameEn;
   String password;
 
   @Enumerated(EnumType.STRING)
   UserType type;
 
-  // TODO 회원등급 (0, 60)
-  // TODO 직원번호
-
   @Enumerated(EnumType.STRING)
   Gender gender;
-
-  String phone;
-
-  @Enumerated(EnumType.STRING)
-  PhoneType phoneType;
 
   String cellPhone;
 
@@ -63,38 +53,18 @@ public class UserEntity extends BaseEntity {
   @Enumerated(EnumType.STRING)
   YN isReceiveEmail;
 
-  String zipcode;
   String address;
   String detailedAddress;
 
-  @Enumerated(EnumType.STRING)
-  AddressType addressType;
 
   @Enumerated(EnumType.STRING)
   YN isOfficeWorker;
 
-  String company;
-  String position;
-  String joinPath;
-  String language;
-  String etcLanguage;
-  String languageSkill;
-
   @Column(name = "is_active")
   boolean active;
 
-  String foreignCountry;
-  String foreignPeriod;
-  String foreignPurpose;
-  String coursePurpose;
-  String withdrawalReason;
-
   String note;
-  //(추가)
-  @Column(name = "lesson_info")
-  String lessonInfo;
-  String nickname;
-  String textbook;
+
 
   @ToString.Exclude
   @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, orphanRemoval = true)
