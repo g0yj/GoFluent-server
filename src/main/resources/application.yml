@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: lms-api
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+#    properties:
+#      hibernate:
+#        dialect: org.hibernate.dialect.MySQLDialect
+  mail:
+    host: smtps.hiworks.com
+    port: 465
+    username: "desk@englishchannel.co.kr"
+    password: "SCkPKXiSG97amVOyoBot"
+    properties:
+      mail:
+        smtp:
+          auth: true
+          ssl:
+            enable: true
+            trust: "*"
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+lms:
+  scheduling:
+    checkSmsWatting: "0 0/1 * * * ?"
+    checkSmsProccessing: "0 0/1 * * * ?"
+    reservationNotification: "0 0 12 * * ?"
+    updateHolidays: "0 0 6 1 * ?"
+  client:
+    sms:
+      url: https://sens.apigw.ntruss.com
+      service-id: ncp:sms:kr:253903233652:languagecube_guro
+      access-key: YCh6WTWk9VB0ujKY7hSr
+      secret-key: ZjAxmzCDBbCwgK8J4Ics3n7zw52FEcTs0RcsDyB2
+      sender: 02-2082-1105
+    email:
+      sender: desk@englishchannel.co.kr
+    holiday:
+      service-key: "3aa4kQYn2OYaT6ymgNX0NTjvKELdOIEtNU7Xwgm+VyBOjEBhg74TLaagTajQTi97GlE3VXZ8p6cN5cMcMvO/KQ=="
+  file:
+    max-file-size: 2MB
+  templates:
+    reservation: "{username} 고객님, you have a reservation on {date}, {time} at Guro Languagecube"
+
+server:
+  servlet:
+    context-path: /api
+
+management:
+  endpoint:
+    shutdown:
+      enabled: false
+
+#encryption:
+#  key-url: http://localhost:8500/v1/kv/config/application/encryption.key

@@ -1,0 +1,39 @@
+<html>
+<head>
+  <script src="https://cdn.jsdelivr.net/npm/jquery/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('#upload').click(function () {
+        const data = new FormData();
+        data.append('id', 'test');
+        data.append('file', $('#file')[0].files[0]);
+
+        axios.post('http://englishchannel.co.kr:8080/admin/v1/test/upload', data, {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Login-Profile': 'test'
+          }
+        }).then(function (response) {
+          console.log('success');
+
+          $('#url').attr('href', response.data.url);
+          $('#url').text(response.data.url);
+        }).catch(function (error) {
+          console.log('error');
+          console.log(error);
+
+          $('#url').attr('href', '#');
+          $('#url').text('error');
+        });
+      });
+    });
+  </script>
+  <title>test</title>
+</head>
+<body>
+<input type="file" id="file">
+<button id="upload">Upload</button><br/>
+<a href="#" id="url">none</a>
+</body>
+</html>
