@@ -32,14 +32,10 @@ public interface TeacherAdminServiceMapper {
   List<Schedule> toSchedules(List<ScheduleEntity> scheduleEntities);
 
   @Mapping(target = "user", source = "userEntity")
-  @Mapping(target = "teacherName", source = "teacherEntity.userEntity.name")
   @Mapping(target = "email", source = "teacherEntity.userEntity.email")
-  @Mapping(target = "teacherEnName", source = "teacherEntity.userEntity.nameEn")
   @Mapping(target = "sort", source = "teacherEntity.sort")
   SearchTeacherResponse toSearchTeacherResponse(TeacherEntity teacherEntity);
 
-  @Mapping(target = "teacher", source = "teacherEntity.userEntity")
-//  @Mapping(target = "workTime", source = "workTime")
   GetTeacher toGetTeacher(TeacherEntity teacherEntity, List<TeacherFile> teacherFiles);
 
   /**

@@ -65,6 +65,8 @@ public class UserEntity extends BaseEntity {
 
   String note;
 
+  String coursePurpose;
+
 
   @ToString.Exclude
   @OneToMany(mappedBy = "userEntity", cascade = CascadeType.ALL, orphanRemoval = true)

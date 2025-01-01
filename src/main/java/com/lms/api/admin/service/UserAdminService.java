@@ -330,8 +330,6 @@ public class UserAdminService {
                       .contains(searchUsers.getKeyword())
                       .or(qUserEntity.loginId.contains(searchUsers.getKeyword()))
                       .or(qUserEntity.email.contains(searchUsers.getKeyword()))
-                      .or(qUserEntity.company.contains(searchUsers.getKeyword()))
-                      .or(qUserEntity.phone.contains(searchUsers.getKeyword()))
                       .or(qUserEntity.cellPhone.contains(searchUsers.getKeyword())));
           break;
         case "name":
@@ -343,11 +341,6 @@ public class UserAdminService {
         case "email":
           where = where.and(qUserEntity.email.contains(searchUsers.getKeyword()));
           break;
-        case "company":
-          where = where.and(qUserEntity.company.contains(searchUsers.getKeyword()));
-          break;
-        case "phone":
-          where = where.and(qUserEntity.phone.contains(searchUsers.getKeyword()));
         case "cellPhone":
           where = where.and(qUserEntity.cellPhone.contains(searchUsers.getKeyword()));
           break;
@@ -462,12 +455,10 @@ public class UserAdminService {
       throw new IllegalArgumentException(" type은 S/A 필수");
     }
 
-    if (createUser.getJoinPath() == JoinPath.ALL) {
-      createUser.setJoinPath(null);
-    }
+
     UserEntity userEntity = null;
 
-    switch (createUser.getType()) {
+    switch (createUser.getType().toString()) {
       case "S":
         userEntity =
             userAdminServiceMapper.toUserEntity(

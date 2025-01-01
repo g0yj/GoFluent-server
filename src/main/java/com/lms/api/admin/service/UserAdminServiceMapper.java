@@ -57,7 +57,6 @@ import org.mapstruct.MappingTarget;
 @Mapper(componentModel = "spring", config = ServiceMapperConfig.class, uses = {ServiceMapper.class})
 public interface UserAdminServiceMapper {
 
-  @Mapping(target = "lessonInfo", source = "lessonInfo")
   User toUser(UserEntity userEntity);
 
   User toUser(Optional<UserEntity> userEntity);
@@ -76,7 +75,6 @@ public interface UserAdminServiceMapper {
 
   @Mapping(target = "id", ignore = true)
   @Mapping(target = "password", source = "password")
-  @Mapping(target = "lessonInfo", source = "lessonInfo")
   void mapUserEntity(UpdateUser updateUser, @MappingTarget UserEntity userEntity);
 
 

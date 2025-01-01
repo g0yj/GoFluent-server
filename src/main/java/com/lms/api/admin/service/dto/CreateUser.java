@@ -1,9 +1,6 @@
 package com.lms.api.admin.service.dto;
 
-import com.lms.api.common.code.AddressType;
-import com.lms.api.common.code.Gender;
-import com.lms.api.common.code.JoinPath;
-import com.lms.api.common.code.PhoneType;
+import com.lms.api.common.code.*;
 import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -18,10 +15,6 @@ import lombok.experimental.FieldDefaults;
 public class CreateUser {
 
   String name;
-  String nameEn;
-  String lastNameEn;
-  String nickname;
-  String textbook;
   String loginId;
   String email;
 
@@ -30,33 +23,23 @@ public class CreateUser {
 
   String password;
   Gender gender;
-  String phone;
-  PhoneType phoneType;
   String cellPhone;
 
   @Default
   Boolean isReceiveSms = false;
 
   Boolean isOfficeWorker;
-  String company;
-  String position;
+
   String note;
-  String lessonInfo;
+
   boolean active;
-  String zipcode;
+
   String address;
   String detailedAddress;
-  AddressType addressType;
-  JoinPath joinPath;
-  String language;
-  String etcLanguage;
-  String languageSkill;
-  String foreignCountry;
-  String foreignPeriod;
-  String foreignPurpose;
+
   String coursePurpose;
   String createdBy;
 
-  String type;
+  UserType type;
 
 }
